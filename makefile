@@ -1,0 +1,22 @@
+CC = gcc
+CFLAGS = -Wall -Wextra
+
+TARGET_SERVER = server
+TARGET_CLIENT = client
+SRCS_SERVER = server.c
+SRCS_CLIENT = client.c
+
+TARGETS = $(TARGET_SERVER) $(TARGET_CLIENT)
+
+all: $(TARGETS)
+
+$(TARGET_SERVER): $(SRCS_SERVER)
+	$(CC) $(CFLAGS) -o $(TARGET_SERVER) $(SRCS_SERVER)
+
+$(TARGET_CLIENT): $(SRCS_CLIENT)
+	$(CC) $(CFLAGS) -o $(TARGET_CLIENT) $(SRCS_CLIENT)
+
+clean:
+	rm -f $(TARGETS)
+
+.PHONY: all clean
